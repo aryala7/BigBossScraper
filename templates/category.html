@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #f4a261;
+        }
+
+        .breadcrumb {
+            background-color: #eee;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 5px;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://via.placeholder.com/40" alt="Logo">
+        <h1>EUIR GmbH</h1>
+    </div>
+    <nav class="nav">
+        <a href="{{ url_for('category', name='fliese') }}">Fliese</a>
+        <a href="{{ url_for('category', name='glas') }}">Glas</a>
+    </nav>
+</header>
+
+<div class="breadcrumb">
+    <a href="{{url_for("index")}}">Home</a> / <span>{{name}}</span>
+</div>
+
+<div class="container">
+    {% for product in products%}
+    <div class="product-card">
+        <img src="{{ product.image_url }}" alt="{{ product.title }}">
+        <h3>{{ product.title }}</h3>
+    </div>
+    {% endfor %}
+</div>
+
+<footer>
+    <p>Contact Us: contact@ourproducts.com</p>
+    <p>Phone: +1 234 567 890</p>
+    <p>Address: 123 Product Street, Commerce City</p>
+</footer>
+
+</body>
+</html>
