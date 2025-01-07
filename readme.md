@@ -1,4 +1,4 @@
-# Flask Scrapy Caching Application
+# Flask Scrapy Caching Application (BigBossScraper)
 
 This project is a web scraping and caching application built with Flask and Scrapy. It fetches product information from two different websites, caches the data, and serves it through a web interface. The cache is updated periodically to ensure the data remains fresh.
 
@@ -19,7 +19,7 @@ This project is a web scraping and caching application built with Flask and Scra
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/aryala7/flask-scrapy-caching.git
+   https://github.com/aryala7/BigBossScraper.git
    cd flask-scrapy-caching
    ```
 
